@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podrum - Friend Group</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        .cursive-logo {
+            font-family: 'Dancing Script', cursive;
+            text-shadow: 0 0 10px rgba(100, 149, 237, 0.8);
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .bg-dark-blue {
+            background-color: #0a192f;
+        }
+        
+        .bg-darker-blue {
+            background-color: #020c1b;
+        }
+        
+        .text-light-blue {
+            color: #64ffda;
+        }
+        
+        .border-light-blue {
+            border-color: #64ffda;
+        }
+        
+        .glow {
+            box-shadow: 0 0 15px rgba(100, 255, 218, 0.5);
+        }
+        
+        .page-transition {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #64ffda;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-dark-blue text-white min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-darker-blue py-4 px-6 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="cursive-logo text-3xl md:text-4xl text-light-blue pulse">
+                Podrum
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#" onclick="showPage('home')" class="nav-link text-white hover:text-light-blue transition">Home</a>
+                <a href="#" onclick="showPage('about')" class="nav-link text-white hover:text-light-blue transition">About Us</a>
+                <a href="#" onclick="showPage('members')" class="nav-link text-white hover:text-light-blue transition">Members</a>
+            </div>
+            <button class="md:hidden text-white focus:outline-none" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-darker-blue py-2 px-4 mt-2 rounded-lg">
+            <a href="#" onclick="showPage('home')" class="block py-2 text-white hover:text-light-blue transition">Home</a>
+            <a href="#" onclick="showPage('about')" class="block py-2 text-white hover:text-light-blue transition">About Us</a>
+            <a href="#" onclick="showPage('members')" class="block py-2 text-white hover:text-light-blue transition">Members</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Home Page -->
+        <div id="home" class="page-transition">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 text-light-blue floating">Welcome to Podrum</h1>
+                <p class="text-xl md:text-2xl max-w-3xl mx-auto">A group of friends sharing memories, adventures, and good times together.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-darker-blue p-6 rounded-lg glow hover:glow-lg transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="text-center">
+                        <i class="fas fa-users text-5xl text-light-blue mb-4"></i>
+                        <h3 class="text-2xl font-semibold mb-3">Our Bond</h3>
+                        <p>Stefi nas ljubi, grli i siluje svaki put kad se vidimo.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-darker-blue p-6 rounded-lg glow hover:glow-lg transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="text-center">
+                        <i class="fas fa-laugh-beam text-5xl text-light-blue mb-4"></i>
+                        <h3 class="text-2xl font-semibold mb-3">Endless Laughs</h3>
+                        <p>Izvale zlata vredne nasmeju i najdepresivniju osobu.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-darker-blue p-6 rounded-lg glow hover:glow-lg transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="text-center">
+                        <i class="fas fa-mountain text-5xl text-light-blue mb-4"></i>
+                        <h3 class="text-2xl font-semibold mb-3">Adventures</h3>
+                        <p>Vožnje biciklama u pizdikovce svakog leta.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-darker-blue rounded-lg p-8 mb-12 glow">
+                <h2 class="text-3xl font-bold mb-6 text-center text-light-blue">Latest Updates</h2>
+                <div class="space-y-6">
+                    <div class="border-b border-gray-700 pb-4">
+                        <h3 class="text-xl font-semibold mb-2">Winter Trip 2024</h3>
+                        <p class="text-gray-300">Odlazak u penthaus i odvaljivanje od alkohola.</p>
+                        <p class="text-sm text-light-blue mt-2">Posted: June 15, 2024</p>
+                    </div>
+                    <div class="border-b border-gray-700 pb-4">
+                        <h3 class="text-xl font-semibold mb-2">Breaking In</h3>
+                        <p class="text-gray-300">Provaljivanje u Stefijevu kuću kroz prozor na kupatilu.</p>
+                        <p class="text-sm text-light-blue mt-2">Posted: July 9, 2025</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">Podrum Incident 31.7.</h3>
+                        <p class="text-gray-300">Ništa se nije desilo...</p>
+                        <p class="text-sm text-light-blue mt-2">Posted: July 31, 2025</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <button class="bg-transparent border-2 border-light-blue text-light-blue px-8 py-3 rounded-full hover:bg-light-blue hover:text-darker-blue transition-all duration-300 font-semibold text-lg">
+                    Join Our Next Adventure
+                </button>
+            </div>
+        </div>
+        
+        <!-- About Us Page -->
+        <div id="about" class="page-transition hidden">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 text-light-blue">About Podrum</h1>
+                <p class="text-xl md:text-2xl max-w-3xl mx-auto">Our story, our values, and what makes us special.</p>
+            </div>
+            
+            <div class="bg-darker-blue rounded-lg p-8 mb-12 glow">
+                <h2 class="text-3xl font-bold mb-6 text-center text-light-blue">Our Origin</h2>
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="md:w-1/2">
+                        <img src="slike/IMG_20250806_140322_590.jpg" alt="Friends together" class="w-full rounded-lg shadow-lg">
+                    </div>
+                    <div class="md:w-1/2">
+                        <p class="mb-4">Podrum je nastao 6. avgusta 2023. godine zbog neprekidnog izlaženja u Stanićev podrum, po kom je grupa i dobila ime.</p>
+                        <p class="mb-4">Zbog stalnog dogovaranja koji ćemo film da gledamo u podrumu, nastala je grupa na instagramu koju je konstruisao Lazar Ranković kako bi lakše komunicirao sa članovima grupe.</p>
+                        <p>Nije bio svestan koliko nije bio upravu. Ne samo da nismo odgovarali na poruke, već nas je teže bilo dobiti i na telefon.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-darker-blue p-8 rounded-lg glow">
+                    <h2 class="text-2xl font-bold mb-4 text-light-blue">Our Values</h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-heart text-light-blue mr-3 mt-1"></i>
+                            <span><strong>Loyalty:</strong> Uvek tu ako treba novac, has ili mesto za spavanje.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-laugh-squint text-light-blue mr-3 mt-1"></i>
+                            <span><strong>Joy:</strong> Izvale i izlasci ove grupe će te uvek nasmejati.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-hands-helping text-light-blue mr-3 mt-1"></i>
+                            <span><strong>Support:</strong> Pomoć uvek spremna za svakog člana.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-globe-americas text-light-blue mr-3 mt-1"></i>
+                            <span><strong>Adventure:</strong> Od vožnji bajsom do krstaških ratova, ova grupa ima sve da ponudi.</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-darker-blue p-8 rounded-lg glow">
+                    <h2 class="text-2xl font-bold mb-4 text-light-blue">Our Traditions</h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-calendar-alt text-light-blue mr-3 mt-1"></i>
+                            <span><strong>Annual Trip:</strong> Vožnja do Brđana i nazad svakog leta</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-birthday-cake text-light-blue mr-3 mt-1"></i>
+                            <span><strong>Birthday Surprises:</strong> Čestitanje rođendana u 00:00 svakom članu grupe.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-film text-light-blue mr-3 mt-1"></i>
+                            <span><strong>Movie Nights:</strong> Gledanje komedija i/ili horora kod Stanića ili Ognjena.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-campground text-light-blue mr-3 mt-1"></i>
+                            <span><strong>Winter Retreat:</strong> Štura iz Čačka kod Dabića u penthaus na Zlatiboru svake zime.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="bg-darker-blue rounded-lg p-8 glow">
+                <h2 class="text-3xl font-bold mb-6 text-center text-light-blue">Our Future</h2>
+                <p class="text-center max-w-3xl mx-auto mb-8">Postojali smo juče. Postojimo danas. Postojaćemo i sutra.</p>
+                
+                <div class="flex justify-center">
+                    <div class="relative w-full max-w-2xl h-64 rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Future together" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                            <h3 class="text-2xl md:text-3xl font-bold text-white text-center px-4">The Adventure Continues...</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Members Page -->
+        <div id="members" class="page-transition hidden">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 text-light-blue">Podrum Members</h1>
+                <p class="text-xl md:text-2xl max-w-3xl mx-auto">Meet the amazing individuals who make up our group.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <!-- Member 1 -->
+                <div class="bg-darker-blue rounded-lg overflow-hidden shadow-lg glow transform transition-all duration-300 hover:scale-105 hover:glow-lg">
+                    <div class="relative h-64">
+                        <img src="slike/IMG_20250805_203933_931.jpg" alt="Alex" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <h3 class="text-2xl font-bold">Ognjen Stanić</h3>
+                            <p class="text-light-blue">The Alcoholic</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="mb-4">Ovaj momak, iako mlad, lep, simpatičan, previše romantičan, zapravo nije diler. Što se tiče seksualnog nasilja, nije ni on najvan, u retkim slučajevima je žrtva, a u glavnom je izvršitelj. Osnivač Čačanske Masonske Organizacije(ČMO).</p>
+                        <div class="flex space-x-2">
+                            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Cigare</span>
+                            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Alkohol</span>
+                            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Izvale</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Member 2 -->
+                <div class="bg-darker-blue rounded-lg overflow-hidden shadow-lg glow transform transition-all duration-300 hover:scale-105">
+                    <div class="relative h-64">
+                        <img src="slike/IMG_20250805_203924_296.jpg" alt="Sam" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <h3 class="text-2xl font-bold">Ognjen Danilović</h3>
+                            <p class="text-light-blue">The Forester</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="mb-4">Čovek poznat po svakom imenu osim po svom. Ima toliko imena da je njegovo pravo ime nepoznato široj javnosti, već samo porodici i članovima grupe. Član ČMO-a i propovedač antropocentrizma tj. Stefanizma.</p>
+                        <div class="flex space-x-2">
+                            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Has</span>
+                            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Lol</span>
+                            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Sleep</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Member 3 -->
+                <div class="bg-darker-blue rounded-lg overflow-hidden shadow-lg glow transform transition-all duration-300 hover:scale-105">
+                    <div class="relative h-64">
+                        <img src="slike/IMG_20250805_203921_839.jpg" alt="Jordan" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <h3 class="text-2xl font-bold">Stefan Nedović</h3>
+                            <p class="text-light-blue">The Pedophile</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="mb-4">Ovaj "čovek", iako manji i lakši od drugih, je sposoban da siluje i maltretira i najjačeg čoveka. Iako se ponaša kao najteži pacijent Laze Lazarevića, on je daleko pametniji od većine ljudi na Zemlji.</p>
+                        <div class="flex space-x-2">
+                            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Silovanje</span>
+                            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Zlostavljanje</span>
+                            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Maltretiranje</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Member 4 -->
+                <div class="bg-darker-blue rounded-lg overflow-hidden shadow-lg glow transform transition-all duration-300 hover:scale-105">
+                    <div class="relative h-64">
+                        <img src="slike/IMG_20250805_210519_521.jpg" alt="Taylor" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <h3 class="text-2xl font-bold">Lazar Ranković</h3>
+                            <p class="text-light-blue">The Pancake</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="mb-4">Osnivač ove mučene grupe. Nizak ali jak kao crna zemlja. Od nastanka Srbije pa do prolaska Halejeve komete, ovakav azman nikad nije rođen. Alkos veći nego dosta njih. Voli dobar has. Za palačinke i roditelje ubija. Član ČMO-a.</p>
+                        <div class="flex space-x-2">
+                            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Palačinka</span>
+                            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Brut</span>
+                            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Radijator</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Member 5 -->
+                <div class="bg-darker-blue rounded-lg overflow-hidden shadow-lg glow transform transition-all duration-300 hover:scale-105">
+                    <div class="relative h-64">
+                        <img src="slike/Screenshot_2025-08-05-21-02-55-91_99c04817c0de5652397fc8b56c3b3817.jpg" alt="Riley" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <h3 class="text-2xl font-bold">David Paunović</h3>
+                            <p class="text-light-blue">The Gambler</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="mb-4">"Suncokret okrenut ka Suncu, a David ka AdmiralBet-u". Gazdaricin ljubimac i verni sluga</p>
+                        <div class="flex space-x-2">
+                            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Kocka</span>
+                            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Alkohol</span>
+                            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Nemoral</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Member 6 -->
+                <div class="bg-darker-blue rounded-lg overflow-hidden shadow-lg glow transform transition-all duration-300 hover:scale-105">
+                    <div class="relative h-64">
+                        <img src="slike/IMG_20250805_204328_207.jpg" alt="Casey" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <h3 class="text-2xl font-bold">Aleksa Ilić</h3>
+                            <p class="text-light-blue">The Shaggy</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="mb-4">Od najmirnijih monaha, pa sve do Lazinih najtežih pacijenata, ovaj čovek bi i Isusa iznervirao samo radi zabave. Kad se ošiša ljudi razmišljaju koji li je deo tela šišao jer na glavi ima istu količinu kose kao i par dana ranije.</p>
+                        <div class="flex space-x-2">
+                            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Čupavi</span>
+                            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Rage-Baiter</span>
+                            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Kokičar</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member 7 -->
+                <div class="bg-darker-blue rounded-lg overflow-hidden shadow-lg glow transform transition-all duration-300 hover:scale-105">
+                    <div class="relative h-64">
+                        <img src="slike/IMG_20250805_204038_029.jpg" alt="Morgan" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <h3 class="text-2xl font-bold">Nikola Andrić</h3>
+                            <p class="text-light-blue">The Atheist</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="mb-4">Matematika i fizika, Nikolina dva božanstva. Voli giros više nego roditelje, za jedan bi i život oduzeo nevinom čoveku. Voli mace. </p>
+                        <div class="flex space-x-2">
+                            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Giros</span>
+                            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Mačke</span>
+                            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Matematika</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member 8 -->
+                <div class="bg-darker-blue rounded-lg overflow-hidden shadow-lg glow transform transition-all duration-300 hover:scale-105">
+                    <div class="relative h-64">
+                        <img src="slike/Screenshot_2025-08-05-21-25-37-33_99c04817c0de5652397fc8b56c3b3817.jpg" alt="Drew" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <h3 class="text-2xl font-bold">Strahinja Dabić</h3>
+                            <p class="text-light-blue">The Priest</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="mb-4">Ako si žena sa novcem u posedovanju, ovaj čovek će te pretući i drpiti ti pare bez izuzetka. Iako živi u crkvi ovaj čovek je veći gršnik i od Mengelea. Ima penthaus na Zlatiboru dobijen kroz mnogo krvi, znoja i dobrih karata na astalu.</p>
+                        <div class="flex space-x-2">
+                            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Alkohol</span>
+                            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Crkva</span>
+                            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Poker</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member 9 -->
+                <div class="bg-darker-blue rounded-lg overflow-hidden shadow-lg glow transform transition-all duration-300 hover:scale-105">
+                    <div class="relative h-64">
+                        <img src="slike/IMG_20250805_204348_949.jpg" alt="Jamie" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <h3 class="text-2xl font-bold">Srećko Vasiljević</h3>
+                            <p class="text-light-blue">The Milkman</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="mb-4">Čovek koji izbegava školu kao musliman svinjetinu. Ljudi kažu da je biti alergičan na mleko loše, ali se varaju. Ovom čoveku je mleko rešenje za sve probleme. Mora u školu? Mleko. Mora na utakmicu? Mleko. Mora u avgust? Mleko.</p>
+                        <div class="flex space-x-2">
+                            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Mleko</span>
+                            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Nogomet</span>
+                            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Stančići</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member 10 -->
+                <div class="bg-darker-blue rounded-lg overflow-hidden shadow-lg glow transform transition-all duration-300 hover:scale-105">
+                    <div class="relative h-64">
+                        <img src="slike/Screenshot_2025-08-05-21-33-05-91_99c04817c0de5652397fc8b56c3b3817.jpg" alt="Robin" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <h3 class="text-2xl font-bold">Dušan Vujinović</h3>
+                            <p class="text-light-blue">The Simp</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="mb-4">Prodaje drugove kako bi se uvukao devojci u gaće. Pali se na ime Ivona. Zbog toga je nakon raskida sa Ivonom 1, nabavio sebi Ivonu 2. Voli decu. Voli babe.</p>
+                        <div class="flex space-x-2">
+                            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Ivona</span>
+                            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Dete</span>
+                            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Baba</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member 11 -->
+                <div class="bg-darker-blue rounded-lg overflow-hidden shadow-lg glow transform transition-all duration-300 hover:scale-105">
+                    <div class="relative h-64">
+                        <img src="slike/IMG_20250805_203900_394.jpg" alt="Taylor" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <h3 class="text-2xl font-bold">Lazar Mirković</h3>
+                            <p class="text-light-blue">The Sugar Daddy</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="mb-4">Ponosan vlasnik EliteMan-a. Bivši član Rankecovog, a sadašnji član Stefijevog odeljenja.</p>
+                        <div class="flex space-x-2">
+                            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Šećer</span>
+                            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">EliteMan</span>
+                            <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">Istraživač</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-darker-blue rounded-lg p-8 glow">
+                <h2 class="text-3xl font-bold mb-6 text-center text-light-blue">Our Dynamic</h2>
+                <p class="text-center max-w-3xl mx-auto mb-8">Together, we balance each other out - the dreamers and the practical ones, the loud and the quiet, the planners and the spontaneous. What makes Podrum special is how we bring out the best in each other.</p>
+                
+                <div class="flex flex-wrap justify-center gap-4">
+                    <div class="bg-gray-800 px-6 py-3 rounded-full flex items-center">
+                        <i class="fas fa-heart text-light-blue mr-2"></i>
+                        <span>2 Years of Friendship</span>
+                    </div>
+                    <div class="bg-gray-800 px-6 py-3 rounded-full flex items-center">
+                        <i class="fas fa-map-marked-alt text-light-blue mr-2"></i>
+                        <span>127 Trips Together</span>
+                    </div>
+                    <div class="bg-gray-800 px-6 py-3 rounded-full flex items-center">
+                        <i class="fas fa-utensils text-light-blue mr-2"></i>
+                        <span>Countless Shared Meals</span>
+                    </div>
+                    <div class="bg-gray-800 px-6 py-3 rounded-full flex items-center">
+                        <i class="fas fa-laugh-beam text-light-blue mr-2"></i>
+                        <span>Infinite Laughs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-darker-blue py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="cursive-logo text-2xl text-light-blue mb-4 md:mb-0">
+                    Podrum
+                </div>
+                                <div class="flex space-x-6 mb-4 md:mb-0">
+                    <a href="https://www.instagram.com/ogishaaa_a/" target="_blank" class="text-white hover:text-light-blue transition">
+                        <i class="fab fa-instagram text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-light-blue transition">
+                        <i class="fab fa-twitter text-2xl"></i>
+                    </a>
+                    <a href="https://www.facebook.com/stefan.nedovic.372?locale=sr_RS" target="_blank" class="text-white hover:text-light-blue transition">
+                        <i class="fab fa-facebook text-2xl"></i>
+                    </a>
+                    <a href="https://discord.gg/CtG45FSV" target="_blank" class="text-white hover:text-light-blue transition">
+                        <i class="fab fa-discord text-2xl"></i>
+                    </a>
+                </div>
+                <div class="text-gray-400 text-sm">
+                    &copy; 2023 Podrum Group. All memories reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Show the selected page and hide others
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('[id^="home"], [id^="about"], [id^="members"]').forEach(page => {
+                page.classList.add('hidden');
+                page.classList.remove('page-transition');
+            });
+            
+            // Show selected page
+            const page = document.getElementById(pageId);
+            page.classList.remove('hidden');
+            // Force reflow to enable animation
+            void page.offsetWidth;
+            page.classList.add('page-transition');
+            
+            // Close mobile menu if open
+            document.getElementById('mobileMenu').classList.add('hidden');
+        }
+        
+        // Toggle mobile menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+        
+    </script>
+</body>
+</html>
